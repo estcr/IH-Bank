@@ -1,0 +1,6 @@
+data:
+  final_demo: 'Data/raw/df_final_demo.txt'
+  final_experiment: 'Data/raw/df_final_experiment_clients.txt'
+  pt1: 'Data/raw/df_final_web_data_pt_1.txt'
+  pt2: 'Data/raw/df_final_web_data_pt_2.txt'
+
