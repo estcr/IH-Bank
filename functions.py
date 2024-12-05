@@ -278,3 +278,38 @@ def categorical_stat_comparison(dfs, columna):
     plt.tight_layout()
     plt.show()
 
+
+#-----------------------MAPA DE CORRELACIÓN LINEAL (PEARSON) ENTRE VARIABLES NUMÉRICAS
+def corr_map_pearson(df,v_min,v_max):
+    import pandas as pd
+    import seaborn as sns
+    import matplotlib.pyplot as plt
+
+    correlation_matrix = df.corr()
+
+    # Setting up the matplotlib figure with an appropriate size
+    plt.figure(figsize=(18, 15))
+
+    # Drawing the heatmap for the numerical columns
+    sns.heatmap(correlation_matrix, annot=True, cmap="cividis", vmin=v_min, vmax=v_max)
+
+    plt.title("Pearson Correlation Heatmap for Selected Numerical Variables")
+    plt.show()
+
+
+    #------------------MAPA DE CORRELACIÓN LINEAL/MONÓTONA (SPEARMAN) ENTRE VARIABLES NUMÉRICAS
+def corr_map_spearman(df,v_min,v_max):
+    import pandas as pd
+    import seaborn as sns
+    import matplotlib.pyplot as plt
+
+    spearman_corr_matrix = df.corr(method='spearman')
+
+    # Setting up the matplotlib figure with an appropriate size
+    plt.figure(figsize=(18, 15))
+
+    # Drawing the heatmap for the numerical columns
+    sns.heatmap(spearman_corr_matrix, annot=True, cmap="copper", vmin=v_min, vmax=v_max)
+
+    plt.title("Spearman Correlation Heatmap for Selected Numerical Variables")
+    plt.show()
