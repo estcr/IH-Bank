@@ -385,3 +385,53 @@ def pair_plots(df, var, vars, hue_var):
         
         # Mostrar el gráfico
         plt.show()
+
+
+# ------------------- FUNCIÓN PARA REALIZAR ESTANDARIZACIÓN Y PRUEBA DE KOLMOGOROV
+
+def kolm_smir_test(df):
+    """
+    Esta función realiza el test de Kolmogorov-Smirnov para evaluar la normalidad de las distribuciones
+    de las variables en un DataFrame, utilizando las columnas del DataFrame para realizar las pruebas de normalidad.
+
+    Para cada columna del DataFrame, la función calcula el estadístico de Kolmogorov-Smirnov y su valor p
+    para comprobar si la distribución de la variable es significativamente diferente de una distribución normal.
+
+    Parámetros:
+    df (DataFrame): Un DataFrame de pandas con las variables a evaluar. Cada columna se considera una variable
+                    y se realiza una prueba de normalidad sobre ella.
+
+    Retorna:
+    None. La función imprime el resultado del test de normalidad para cada variable y genera un gráfico de probabilidad
+          para cada una, visualizando si se ajusta a una distribución normal.
+
+    Descripción del flujo:
+    1. La función recorre cada columna del DataFrame.
+    2. Para cada columna, calcula una versión estandarizada de los datos (media 0 y desviación estándar 1).
+    3. Realiza el test de Kolmogorov-Smirnov usando la función `kstest` de SciPy, comparando la distribución
+       estandarizada de los datos con una distribución normal estándar.
+    4. Si el valor p del test es menor que 0.05, se considera que la distribución es significativamente diferente de la normal.
+    5. Se muestra un gráfico de probabilidad para cada variable utilizando `probplot` de SciPy, lo que ayuda a visualizar
+       la normalidad de los datos.
+    """
+    
+    from scipy import stats
+    import matplotlib.pyplot as plt
+
+    # Iterar a través de las columnas del DataFrame
+    for columna in df.columns:
+        # Estandarizar los datos (media 0 y desviación estándar 1)
+        standardized_saleprice = (df[columna] - df[columna].mean()) / df[columna].std()
+        
+        # Realizar el test de Kolmogorov-Smirnov para comprobar la normalidad
+        ks_test_statistic, ks_p_value = stats.kstest(standardized_saleprice, 'norm')
+        
+        # Imprimir los resultados del test
+        if ks_p_value < 0.05:
+            print(f'The test results indicate that the distribution of {columna} is significantly different from a normal distribution.')
+        else:
+            print(f'The test results indicate that the distribution of {columna} is not significantly different from a normal distribution.')
+        
+        # Crear y mostrar el gráfico de probabilidad (Q-Q plot)
+        stats.probplot(df[columna], plot=plt)
+        plt.show()
