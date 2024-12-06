@@ -280,21 +280,47 @@ def categorical_stat_comparison(dfs, columna):
 
 
 #-----------------------MAPA DE CORRELACIÓN LINEAL (PEARSON) ENTRE VARIABLES NUMÉRICAS
-def corr_map_pearson(df,v_min,v_max):
+def corr_map_pearson(df, v_min, v_max):
+    """
+    Esta función genera un mapa de calor (heatmap) para visualizar la matriz de correlación de Pearson entre las variables 
+    numéricas de un DataFrame. El gráfico muestra la fuerza y dirección de la relación lineal entre cada par de variables.
+
+    Parámetros:
+    df (DataFrame): 
+        Un DataFrame de pandas que contiene las variables numéricas entre las que se calculará la correlación de Pearson.
+    v_min (float): 
+        El valor mínimo para la escala de colores en el heatmap. Este parámetro controla el rango inferior de la visualización de la correlación.
+    v_max (float): 
+        El valor máximo para la escala de colores en el heatmap. Este parámetro controla el rango superior de la visualización de la correlación.
+
+    Retorna:
+    None. La función genera un gráfico de tipo heatmap que visualiza las correlaciones entre las variables numéricas del DataFrame.
+
+    Descripción del flujo:
+    1. La función comienza calculando la **matriz de correlación de Pearson** entre las variables numéricas del DataFrame utilizando el método `.corr()` de pandas.
+    2. Luego, se configura el gráfico con un tamaño adecuado utilizando `matplotlib`.
+    3. Se utiliza **Seaborn** para dibujar el heatmap, donde cada celda del mapa muestra la correlación entre las variables correspondientes.
+    4. Finalmente, se añade un título al gráfico y se visualiza utilizando `matplotlib`.
+
+    """
+    
     import pandas as pd
     import seaborn as sns
     import matplotlib.pyplot as plt
 
+    # Cálculo de la matriz de correlación de Pearson entre las variables numéricas del DataFrame
     correlation_matrix = df.corr()
 
-    # Setting up the matplotlib figure with an appropriate size
+    # Configuración de la figura de matplotlib con un tamaño adecuado
     plt.figure(figsize=(18, 15))
 
-    # Drawing the heatmap for the numerical columns
+    # Dibujar el primer mapa de calor (heatmap) para la matriz de correlación completa
     sns.heatmap(correlation_matrix, annot=True, cmap="cividis", vmin=v_min, vmax=v_max)
 
+    # Añadir un título al gráfico
     plt.title("Pearson Correlation Heatmap for Selected Numerical Variables")
     plt.show()
+
 
 
     #------------------MAPA DE CORRELACIÓN LINEAL/MONÓTONA (SPEARMAN) ENTRE VARIABLES NUMÉRICAS
@@ -313,3 +339,49 @@ def corr_map_spearman(df,v_min,v_max):
 
     plt.title("Spearman Correlation Heatmap for Selected Numerical Variables")
     plt.show()
+
+
+    #------------------GRÁFICAS DE  CORRELACIÓN ENTRE VARIABLES NUMÉRICAS TEST VS CONTROL
+
+def pair_plots(df, var, vars, hue_var):
+    """
+    Esta función genera gráficos de pares (pairplots) para un conjunto de variables de un DataFrame,
+    con la posibilidad de diferenciación por una variable categórica (hue).
+
+    Parámetros:
+    df (DataFrame): Un DataFrame de pandas que contiene los datos a visualizar.
+    var (str): El nombre de la variable principal (en el eje X) para las gráficas de pares.
+    vars (list of str): Una lista de nombres de columnas (strings) que se compararán con `var`.
+    hue_var (str): El nombre de la variable categórica para diferenciar los puntos en los gráficos.
+    
+    Retorna:
+    None. La función genera y muestra un gráfico para cada par de variables.
+
+    Descripción del flujo:
+    1. La función recorre cada elemento de `vars`, que contiene una lista de variables a comparar con `var`.
+    2. Para cada par de variables, se genera un gráfico de pares utilizando `seaborn.pairplot`.
+    3. En cada gráfico, se dibuja una línea de regresión, y se utiliza `hue_var` para colorear los puntos de acuerdo a la variable categórica.
+    4. Se muestra el gráfico con `plt.show()`.
+    """
+
+    import pandas as pd
+    import seaborn as sns
+    import matplotlib.pyplot as plt
+
+    # Iterar a través de la lista de variables
+    for vars_n in vars:
+        # Seleccionar las columnas necesarias para el gráfico
+        selected_columns = [var, vars_n, hue_var]
+        
+        # Crear el gráfico de pares con la regresión lineal
+        g = sns.pairplot(df[selected_columns], hue=hue_var, kind='reg', 
+                        plot_kws={'line_kws': {'color': 'red', 'linewidth': 2}})
+        
+        # Ajustar el espacio para que el título no se solape
+        g.fig.subplots_adjust(top=0.95)  # Ajuste del espacio superior
+        
+        # Establecer el título del gráfico (fuera del área del gráfico para evitar solapamientos)
+        g.fig.suptitle(f"Gráfica de correlación entre {var} y {vars_n}", fontsize=16)
+        
+        # Mostrar el gráfico
+        plt.show()
