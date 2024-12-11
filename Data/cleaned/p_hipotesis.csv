@@ -1,0 +1,7 @@
+id_prueba,prueba,p_value,interpretacion
+muestras_1,Edad de clientes en nuevo sitio web = Edad de clientes en antiguo sitio web,0.440885093,"La edad media en las personas que probaron ambas páginas web es igual, con un 95% de confianza. "
+muestras_2,Antiguedad de clientes en nuevo sitio web = Antigüedad de clientes en antiguo sitio web,0.080525902,"La antigüedad media como clientes en las personas que probaron ambas páginas web es igual, con un 95% de confianza. "
+sitios_1,Tasa de éxito en Step 1 para nuevo sitio web <= Tasa de éxito en Step 1 para antiguo sitio web,0.996569061,"Los clientes no pasan del Step 1 con mayor frecuencia en el nuevo sitio web, con repespecto al antiguo."
+sitios_2,Tasa de éxito en Step 2 para nuevo sitio web <= Tasa de éxito en Step 2 para antiguo sitio web,6.4374E-34,"Los clientes completan el Step 2 con mayor frecuencia en el nuevo sitio web, que en el antiguo."
+sitios_3,Tasa de éxito en Step 3 para nuevo sitio web <= Tasa de éxito en Step 3 para antiguo sitio web,6.78593E-36,"Los clientes completan el Step 2 con mayor frecuencia en el nuevo sitio web, que en el antiguo."
+sitios_4,Tasa de fallo en completar proceso para nuevo sitio web <= Tasa de fallo en completar proceso para antiguo sitio web,1.28485E-85,"Los clientes terminan el proceso con mayor frecuencia en el nuevo sitio web, que en el antiguo."
