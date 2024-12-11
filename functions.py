@@ -1,5 +1,3 @@
-#------------------------FUNCIONES DE ANÁLISIS UNIVARIABLE-----------------------------------------------
-
 #------- ANÁLISIS UNIVARIABLE DE FUNCIONES NUMÉRICAS
 
 def basic_stat(df, columna, show_outliers, bins):
@@ -324,20 +322,46 @@ def corr_map_pearson(df, v_min, v_max):
 
 
     #------------------MAPA DE CORRELACIÓN LINEAL/MONÓTONA (SPEARMAN) ENTRE VARIABLES NUMÉRICAS
-def corr_map_spearman(df,v_min,v_max):
+def corr_map_spearman(df, v_min, v_max):
+    """
+    Esta función genera un mapa de calor (heatmap) que muestra la matriz de correlación de Spearman
+    entre las variables numéricas de un DataFrame. Utiliza seaborn para visualizar la correlación 
+    entre las columnas numéricas, mostrando valores numéricos de la correlación y ajustando los 
+    valores del mapa de calor dentro de un rango especificado.
+
+    Parámetros:
+    - df (pandas.DataFrame): El DataFrame que contiene las variables numéricas para las cuales 
+                              se calculará la correlación de Spearman.
+    - v_min (float): El valor mínimo del rango de color para la visualización del heatmap.
+    - v_max (float): El valor máximo del rango de color para la visualización del heatmap.
+
+    Retorna:
+    - None: La función no retorna un valor, pero muestra un heatmap de la correlación de Spearman.
+
+    Funciona de la siguiente manera:
+    1. Calcula la matriz de correlación de Spearman entre las variables numéricas del DataFrame.
+    2. Utiliza seaborn para generar un mapa de calor con la matriz de correlación.
+    3. Ajusta los límites de color del heatmap según los valores `v_min` y `v_max` proporcionados.
+    4. Muestra el gráfico con matplotlib.
+    """
+
     import pandas as pd
     import seaborn as sns
     import matplotlib.pyplot as plt
 
+    # Calculando la matriz de correlación de Spearman
     spearman_corr_matrix = df.corr(method='spearman')
 
-    # Setting up the matplotlib figure with an appropriate size
+    # Configurando el tamaño de la figura del gráfico
     plt.figure(figsize=(18, 15))
 
-    # Drawing the heatmap for the numerical columns
+    # Dibujando el heatmap con los valores de correlación y los límites de color ajustados
     sns.heatmap(spearman_corr_matrix, annot=True, cmap="copper", vmin=v_min, vmax=v_max)
 
+    # Añadiendo título al gráfico
     plt.title("Spearman Correlation Heatmap for Selected Numerical Variables")
+    
+    # Mostrando el heatmap
     plt.show()
 
 
@@ -421,17 +445,92 @@ def kolm_smir_test(df):
     # Iterar a través de las columnas del DataFrame
     for columna in df.columns:
         # Estandarizar los datos (media 0 y desviación estándar 1)
-        standardized_saleprice = (df[columna] - df[columna].mean()) / df[columna].std()
+        standardized_z = (df[columna] - df[columna].mean()) / df[columna].std()
         
         # Realizar el test de Kolmogorov-Smirnov para comprobar la normalidad
-        ks_test_statistic, ks_p_value = stats.kstest(standardized_saleprice, 'norm')
+        ks_test_statistic, ks_p_value = stats.kstest(standardized_z, 'norm')
         
         # Imprimir los resultados del test
         if ks_p_value < 0.05:
-            print(f'The test results indicate that the distribution of {columna} is significantly different from a normal distribution.')
-        else:
-            print(f'The test results indicate that the distribution of {columna} is not significantly different from a normal distribution.')
-        
+            print(f'The test results indicate that the distribution of {columna} : P value = {ks_p_value}')
+
         # Crear y mostrar el gráfico de probabilidad (Q-Q plot)
         stats.probplot(df[columna], plot=plt)
         plt.show()
+
+
+
+def max_min_norm(df):
+    """
+    Aplica una transformación de normalización Min-Max a cada columna numérica de un DataFrame.
+    
+    La normalización Min-Max escala cada valor dentro de una columna para que esté en el rango [0, 1],
+    usando la fórmula:
+        X_norm = (X - X_min) / (X_max - X_min)
+    
+    Args:
+        df (pd.DataFrame): El DataFrame de entrada que contiene las columnas numéricas que se desean normalizar.
+
+    Returns:
+        pd.DataFrame: Un nuevo DataFrame con las mismas columnas que el original, pero con los valores normalizados.
+                      Cada columna tendrá un sufijo "_norm" para indicar que ha sido transformada.
+    """
+    
+    from sklearn.preprocessing import MinMaxScaler
+    import pandas as pd
+
+    # Crear un nuevo DataFrame para almacenar las columnas normalizadas
+    df_norm = pd.DataFrame()
+    
+    # Iterar a través de cada columna en el DataFrame original
+    for columna in df:
+        # Inicializando el escalador MinMaxScaler
+        scaler = MinMaxScaler()  # Usamos el MinMaxScaler para escalar los valores
+
+        # Realiza la transformación de Min-Max y guarda el resultado en el nuevo DataFrame
+        df_norm[columna] = pd.DataFrame(scaler.fit_transform(df[[columna]]), columns=[columna + "_norm"])
+        # La columna original es transformada y almacenada con el sufijo "_norm"
+    
+    # Retorna el DataFrame con las columnas normalizadas
+    return df_norm
+
+#----------------------- PRUEBA DE HIPÓTESIS CON T STUDENT -----------------------------------
+def t_test(df1, var1, df2, var2, hipo):
+    """
+    Realiza una prueba t de dos muestras independientes para comparar las medias de dos grupos
+    en base a las columnas especificadas de dos DataFrames. La prueba t se realiza utilizando
+    el test de Welch, que no asume varianzas iguales entre los dos grupos.
+
+    Parámetros:
+    df1 : pandas.DataFrame
+        El primer DataFrame que contiene la variable de interés (var1).
+    var1 : str
+        El nombre de la columna en df1 que se desea analizar.
+    df2 : pandas.DataFrame
+        El segundo DataFrame que contiene la variable de interés (var2).
+    var2 : str
+        El nombre de la columna en df2 que se desea analizar.
+    hipo : str
+        Tipo de hipótesis alternativa. Debe ser uno de los siguientes:
+        - 'two-sided' : prueba de dos colas (las medias de ambos grupos son diferentes).
+        - 'less' : prueba de una cola, en la que se prueba si la media de df1[var1] es menor que la de df2[var2].
+        - 'greater' : prueba de una cola, en la que se prueba si la media de df1[var1] es mayor que la de df2[var2].
+
+    Salida:
+    None
+        Imprime el valor p y un mensaje indicando si hay suficiente evidencia para rechazar la hipótesis nula.
+    """
+    
+    # Importa el módulo de scipy.stats para realizar la prueba t
+    import scipy.stats as st
+    
+    # Realiza la prueba t de dos muestras independientes con el test de Welch (equal_var=False)
+    # La prueba se realiza para comparar las medias de las variables var1 y var2 de los DataFrames df1 y df2.
+    t_statistic, p_value = st.ttest_ind(df1[var1], df2[var2], equal_var=False, alternative=hipo)
+    
+    # Si el p-valor es mayor que 0.05, no se rechaza la hipótesis nula
+    if p_value > 0.05:
+        print(f'P value = {p_value} \nNo hay evidencia para rechazar la hipótesis nula')
+    else:
+        # Si el p-valor es menor o igual que 0.05, se rechaza la hipótesis nula
+        print(f'P value = {p_value} \nHay evidencia para rechazar la hipótesis nula')
