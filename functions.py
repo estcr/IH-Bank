@@ -229,9 +229,7 @@ def basic_stat_comparison(dfs, columna, show_outliers, bins):
 
 
 #------- ANÁLISIS UNIVARIABLE DE VARIABLES CATEGÓRICAS (COMPARATIVO DE 3 DATAFRAMES)-----------
-import pandas as pd
-import seaborn as sns
-import matplotlib.pyplot as plt
+
 
 def categorical_stat_comparison(dfs, columna):
     """
@@ -244,7 +242,9 @@ def categorical_stat_comparison(dfs, columna):
 
     No devuelve ningún valor. La función imprime las frecuencias y muestra los gráficos comparativos.
     """
-
+    import pandas as pd
+    import seaborn as sns
+    import matplotlib.pyplot as plt
     # Verificamos que la columna exista en todos los DataFrames
     for i, df in enumerate(dfs):
         if columna not in df.columns:
