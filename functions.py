@@ -879,9 +879,6 @@ def create_box_plot_with_columns(df, title="Box Plot Comparison"):
     return fig
 
 
-import pandas as pd
-from scipy.stats import ttest_ind
-import plotly.express as px
 
 def perform_time_statistical_tests(df_merged_final_test, df_merged_final_control):
     """
@@ -892,6 +889,9 @@ def perform_time_statistical_tests(df_merged_final_test, df_merged_final_control
         df_merged_final_test (pd.DataFrame): DataFrame con los datos del grupo Test.
         df_merged_final_control (pd.DataFrame): DataFrame con los datos del grupo Control.
     """
+    import pandas as pd
+    from scipy.stats import ttest_ind
+    import plotly.express as px
     # 1. Comparación para columnas de tiempo (`_time`).
     time_columns = ['confirm_time', 'start_time', 'step_1_time', 'step_2_time', 'step_3_time']
     
