@@ -2,7 +2,7 @@
 
 def basic_stat(df, columna, show_outliers, bins):
     import pandas as pd
-    import seaborn as sb
+    import seaborn as sns
     import matplotlib.pyplot as plt  # Importamos específicamente pyplot
 
     """
@@ -67,7 +67,7 @@ def basic_stat(df, columna, show_outliers, bins):
 
     # Creamos el boxplot con seaborn
     # El parámetro show_outliers controla si mostrar los outliers o no
-    sb.boxplot(x=df[columna], color='skyblue', showfliers=show_outliers)
+    sns.boxplot(x=df[columna], color='skyblue', showfliers=show_outliers)
 
     # Agregamos título y etiquetas a los ejes del boxplot
     plt.title(f'Boxplot de {columna}')
@@ -76,7 +76,7 @@ def basic_stat(df, columna, show_outliers, bins):
     # Mostramos el boxplot
     plt.show()
     # Creamos el histograma con una curva de densidad KDE utilizando Seaborn
-    sb.histplot(df[columna], bins=bins, kde=True, color='skyblue', edgecolor='black')
+    sns.histplot(df[columna], bins=bins, kde=True, color='skyblue', edgecolor='black')
 
     # Agregamos título y etiquetas al histograma
     plt.title(f'Histograma de {columna}')
@@ -104,14 +104,14 @@ def categ_basic_stat(df, columna):
     - 'count': La frecuencia de cada categoría. 
     """
     import pandas as pd
-    import seaborn as sb
+    import seaborn as sns
     import matplotlib.pyplot as plt  # Importamos específicamente pyplot
     
     # Calcular las frecuencias de cada categoría en la columna
     frec = df[columna].value_counts().reset_index()
     
     # Crear un gráfico de barras (barplot) con Seaborn
-    sb.countplot(x=df[columna], data=df)
+    sns.countplot(x=df[columna], data=df)
 
     # Personalizar el gráfico (opcional)
     plt.title(f'Frecuencia en {columna}')
@@ -155,7 +155,7 @@ def basic_stat_comparison(dfs, columna, show_outliers, bins):
     - Histograma: Muestra la distribución de frecuencia de los datos en intervalos (bins).
     """
     import pandas as pd
-    import seaborn as sb
+    import seaborn as sns
     import matplotlib.pyplot as plt
 
     # Verificamos que la columna exista en todos los DataFrames
@@ -212,13 +212,13 @@ def basic_stat_comparison(dfs, columna, show_outliers, bins):
 
     # Graficamos los Boxplots
     for i, df in enumerate(dfs):
-        sb.boxplot(x=df[columna], ax=axes[i], color=colors[i], showfliers=show_outliers)
+        sns.boxplot(x=df[columna], ax=axes[i], color=colors[i], showfliers=show_outliers)
         axes[i].set_title(f'Boxplot de {columna} - DF {i+1}')
         axes[i].set_xlabel(columna)
 
     # Graficamos los Histogramas (un histograma común para todos los DataFrames)
     for i, df in enumerate(dfs):
-        sb.histplot(df[columna], bins=bins, kde=True, color=colors[i], edgecolor='black', ax=axes[i+3])
+        sns.histplot(df[columna], bins=bins, kde=True, color=colors[i], edgecolor='black', ax=axes[i+3])
         axes[i+3].set_title(f'Histograma de {columna} - DF {i+1}')
         axes[i+3].set_xlabel(columna)
         axes[i+3].set_ylabel('Frecuencia')
@@ -230,7 +230,7 @@ def basic_stat_comparison(dfs, columna, show_outliers, bins):
 
 #------- ANÁLISIS UNIVARIABLE DE VARIABLES CATEGÓRICAS (COMPARATIVO DE 3 DATAFRAMES)-----------
 import pandas as pd
-import seaborn as sb
+import seaborn as sns
 import matplotlib.pyplot as plt
 
 def categorical_stat_comparison(dfs, columna):
@@ -267,7 +267,7 @@ def categorical_stat_comparison(dfs, columna):
         print()
 
         # Graficamos el gráfico de barras para las frecuencias
-        sb.barplot(x=freq.index, y=freq.values, ax=axes[i], color=colors[i])
+        sns.barplot(x=freq.index, y=freq.values, ax=axes[i], color=colors[i])
         axes[i].set_title(f'Frecuencias de {columna} - DF {i+1}')
         axes[i].set_xlabel(columna)
         axes[i].set_ylabel('Frecuencia')
