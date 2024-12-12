@@ -1036,3 +1036,29 @@ def create_boxplot_comparison(df, column, title="Test vs Control Group Compariso
     fig.show()
 
     return fig
+#---------------------LLAMADO A CSV DE DATA FRAME FINAL---------------------------------------------------------------
+def llama_datos():
+    import pandas as pd
+    df_final_completo=pd.read_csv("Data/raw/finalcompleto.csv")
+    df_test=pd.read_csv("Data/raw/test.csv")
+    df_tasas=pd.read_csv("Data/raw/tasas.csv")
+    df_control=pd.read_csv("Data/raw/control.csv")
+
+    df_test_num = df_test[['confirm_count', 'start_count', 'step_1_count', 'confirm_time', 'start_time', 
+                       'step_1_time', 'step_2_time', 'step_3_time', 'step_2_count', 'step_3_count', 
+                        'clnt_tenure_yr', 'clnt_tenure_mnth', 'clnt_age', 'num_accts', 
+                       'bal', 'calls_6_mnth', 'logons_6_mnth']]
+
+    # Selección de columnas categóricas
+    df_test_categ = df_test[['visit_id', 'client_id', 'visitor_id', 'gendr']]
+
+    df_control_num = df_control[['confirm_count', 'start_count', 'step_1_count', 'confirm_time', 'start_time', 
+                       'step_1_time', 'step_2_time', 'step_3_time', 'step_2_count', 'step_3_count', 
+                       'clnt_tenure_yr', 'clnt_tenure_mnth', 'clnt_age', 'num_accts', 
+                       'bal', 'calls_6_mnth', 'logons_6_mnth']]
+
+    # Selección de columnas categóricas
+    df_control_categ = df_control[['visit_id', 'client_id', 'visitor_id', 'gendr']]
+    
+    return df_final_completo, df_test_num, df_test_categ, df_control_num, df_control_categ, df_tasas
+
