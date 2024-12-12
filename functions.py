@@ -950,7 +950,11 @@ def perform_count_statistical_tests(df_merged_final_test, df_merged_final_contro
         df_merged_final_test (pd.DataFrame): DataFrame con los datos del grupo Test.
         df_merged_final_control (pd.DataFrame): DataFrame con los datos del grupo Control.
     """
-    # 2. Comparación para columnas de conteo (`_count`).
+
+    import pandas as pd
+    from scipy.stats import chi2_contingency
+    import plotly.express as px
+    # 1. Comparación para columnas de conteo (`_count`).
     count_columns = ['confirm_count', 'start_count', 'step_1_count', 'step_2_count', 'step_3_count']
     
     print("Comparación de columnas de conteo (Chi-cuadrado):\n")
@@ -1002,7 +1006,7 @@ def perform_count_statistical_tests(df_merged_final_test, df_merged_final_contro
         fig.show()
 
 
-import plotly.express as px
+
 
 def create_boxplot_comparison(df, column, title="Test vs Control Group Comparison"):
     """
@@ -1016,6 +1020,8 @@ def create_boxplot_comparison(df, column, title="Test vs Control Group Compariso
     Returns:
         plotly.graph_objects.Figure: El gráfico de caja generado.
     """
+
+    import plotly.express as px
     # Crear el gráfico de caja
     fig = px.box(
         df,
