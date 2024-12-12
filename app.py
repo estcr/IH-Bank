@@ -65,7 +65,7 @@ if seleccion == "Prueba piloto":
         Durante la prueba, dividimos a nuestros clientes en dos grupos. Un grupo utilizó el sitio antiguo y el otro probó el nuevo sitio. A través de esta prueba, buscamos determinar cuál de los dos sitios permite a los usuarios completar el proceso de inversión de manera más rápida y sencilla.
     """)
     st.subheader("Proceso general en el sitio web")
-    st.image(r"Data\pasos.jpg", caption="", use_column_width=True)
+    st.image(r"..\Data\pasos.jpg", caption="", use_column_width=True)
     st.subheader("Innovaciones en la nueva web")
     textop1='''
         Resumen de las características:
@@ -213,7 +213,7 @@ elif seleccion == "Resultados de la prueba":
     st.dataframe(df_tasas)
 
     st.write("Con el dataframe de KPI's, fue posible graficar el comportamiento general de nuestros clientes en ambos sitios web.")
-    st.image(r"Data\gra.jpg",  caption="", use_column_width=True)
+    st.image(r"..\Data\gra.jpg",  caption="", use_column_width=True)
 
     
     st.write("Para validar cuál de los sitios web ofrece mejores resultados, se aplicaron pruebas de hipótesis. Sus resultados se muestran a continuación:")
@@ -290,7 +290,7 @@ elif seleccion == "Conclusiones y recomendaciones":
 # Sección 5: DEMO de power bi 
 elif seleccion == "Power BI DEMO":      
      st.title("Power BI")
-     st.video(r"Data/video_4k.mp4")
+     st.video(r"../Data/video_4k.mp4")
 
 # Agregar los datos del autor y enlaces de redes sociales en la parte inferior de la barra lateral
 st.sidebar.markdown("---")  # Línea separadora
