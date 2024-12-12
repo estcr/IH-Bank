@@ -314,6 +314,9 @@ def execute_all(df_parts, df_final_demo, df_experiment_clients):
     df_visitas_final = process_visitas_data(df_parts)
     print("Datos de visitas procesados.")
 
+    # Se borran filas ya que las mismas solo tenian el client id y ningun dato mas
+    df_final_demo = df_final_demo[~(df_final_demo.drop(columns=['client_id']).isna().all(axis=1))]
+
     df_date = date_time_visit_id(df_parts)
     print("Datos agrupados por visit_id procesados.")
 
