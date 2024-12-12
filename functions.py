@@ -937,9 +937,7 @@ def perform_time_statistical_tests(df_merged_final_test, df_merged_final_control
         fig.show()
 
 
-import pandas as pd
-from scipy.stats import chi2_contingency
-import plotly.express as px
+
 
 def perform_count_statistical_tests(df_merged_final_test, df_merged_final_control):
     """
