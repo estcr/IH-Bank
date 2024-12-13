@@ -8,7 +8,7 @@ st.set_page_config(layout="wide")
 import functions as f
 import numpy as np
 import pandas as pd
-from matplotlib import pyplot as plt
+import matplotlib.pyplot as plt
 import seaborn as sns 
 # Personalización de estilos
 st.markdown("""
