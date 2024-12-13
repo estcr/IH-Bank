@@ -52,7 +52,7 @@ Como resultado, se generaron visualizaciones y dashboards interactivos con herra
   3. **Comparaciones Gráficas:** Análisis visual entre las versiones mediante Ribbon Chart.
   4. **Comparaciones Gráficas:** Análisis visual entre las versiones mediante Bar Charts.
  
-     ![Demo Power Bi]()
+     ![Demo Power Bi](https://github.com/estcr/Project_2_Iron_Hack/blob/main/Data/calidad%203.gif)
 
 - **Streamlit:** Se desarrolló una aplicación interactiva que permite explorar los datos y análisis de forma dinámica.
 
