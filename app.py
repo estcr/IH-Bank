@@ -100,7 +100,7 @@ elif seleccion == "Análisis de la aplicación de la prueba":
     st.subheader("Edad de los clientes")
     st.write("Registro general (AZUL)  /  Clientes en web nueva (VERDE)  /  Clientes en web antigua (ROSA)")
     fig_1=f.basic_stat_comparison([df_final_completo, df_test_num, df_control_num],'clnt_age', show_outliers=True, bins=20)
-    st.set_option('deprecation.showPyplotGlobalUse', False) #elimina warning xd
+    #st.set_option('deprecation.showPyplotGlobalUse', False) #elimina warning xd
     st.pyplot(fig_1,use_container_width=True)
     st.write("En esta imagen se aprecia la similitud en los clientes seleccionados")
         
@@ -108,7 +108,7 @@ elif seleccion == "Análisis de la aplicación de la prueba":
     st.subheader("Número de inicios de sesión en el último semestre")
     st.write("Registro general (AZUL)  /  Clientes en web nueva (VERDE)  /  Clientes en web antigua (ROSA)")
     fig_2=f.basic_stat_comparison([df_final_completo, df_test_num, df_control_num],'logons_6_mnth', show_outliers=True, bins=7)
-    st.set_option('deprecation.showPyplotGlobalUse', False) #elimina warning xd
+    #st.set_option('deprecation.showPyplotGlobalUse', False) #elimina warning xd
     st.pyplot(fig_2,use_container_width=True)
     st.write("En esta imagen se aprecia la similitud en los clientes seleccionados")
 
@@ -116,7 +116,7 @@ elif seleccion == "Análisis de la aplicación de la prueba":
     st.subheader("Años como clientes del banco")
     st.write("Registro general (AZUL)  /  Clientes en web nueva (VERDE)  /  Clientes en web antigua (ROSA)")
     fig_3=f.basic_stat_comparison([df_final_completo, df_test_num, df_control_num],'clnt_tenure_yr', show_outliers=True, bins=20)    
-    st.set_option('deprecation.showPyplotGlobalUse', False) #elimina warning xd
+    #st.set_option('deprecation.showPyplotGlobalUse', False) #elimina warning xd
     st.pyplot(fig_3,use_container_width=True)
     st.write("En esta imagen se aprecia la similitud en los clientes seleccionados")
  
