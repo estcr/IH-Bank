@@ -68,7 +68,7 @@ if seleccion == "Prueba piloto":
         Durante la prueba, dividimos a nuestros clientes en dos grupos. Un grupo utilizó el sitio antiguo y el otro probó el nuevo sitio. A través de esta prueba, buscamos determinar cuál de los dos sitios permite a los usuarios completar el proceso de inversión de manera más rápida y sencilla.
     """)
     st.subheader("Proceso general en el sitio web")
-    st.image(r"Data/pasos.jpg", caption="", use_column_width=True)
+    st.image(r"Data/pasos.jpg", caption="", use_container_width=True)
     st.subheader("Innovaciones en la nueva web")
     textop1='''
         Resumen de las características:
@@ -82,12 +82,12 @@ if seleccion == "Prueba piloto":
         - Estas nuevas características están pensadas para ofrecer una experiencia de usuario sencilla, segura y eficiente, manteniendo el proceso de inversión accesible para todos los clientes.        
         '''
     st.write(textop1)
-    st.image("https://images.ctfassets.net/wowgx05xsdrr/1q82ODPjZi6PohUPYicZp7/637c8f2125eb4eebd0f356d1bbfde224/ecommerce-investments-article-header.jpg?fm=webp&w=3840&q=75", caption="", use_column_width=True)
+    st.image("https://images.ctfassets.net/wowgx05xsdrr/1q82ODPjZi6PohUPYicZp7/637c8f2125eb4eebd0f356d1bbfde224/ecommerce-investments-article-header.jpg?fm=webp&w=3840&q=75", caption="", use_container_width=True)
 
 # Sección 2: Análisis de la aplicación de la prueba
 elif seleccion == "Análisis de la aplicación de la prueba":
     st.title("¿A quiénes se aplicó la prueba piloto?")
-    st.image("https://etf.dws.com/globalassets/_-knowledge/rebrand2023/3.7964_rebrand_visual_ai_bigdata_1889x480.jpg?width=1903&height=520&v=1459092475", caption="", use_column_width=True)
+    st.image("https://etf.dws.com/globalassets/_-knowledge/rebrand2023/3.7964_rebrand_visual_ai_bigdata_1889x480.jpg?width=1903&height=520&v=1459092475", caption="", use_container_width=True)
     st.header("A/B Test")
     st.write("""
         En esta sección, presentaremos un análisis detallado de las características de las muestras de clientes que participaron en la prueba piloto de nuestro nuevo sitio web. Las gráficas a continuación ofrecen una visión clara de los perfiles de los participantes en ambos grupos de prueba: aquellos que utilizaron el sitio web antiguo y los que probaron el nuevo diseño.
@@ -182,7 +182,7 @@ elif seleccion == "Análisis de la aplicación de la prueba":
 # Sección 3: Resultados de la prueba
 elif seleccion == "Resultados de la prueba":
     st.title("Resultados de la prueba")
-    st.image("https://pub.doubleverify.com/blog/content/images/2023/10/DVPS_BLOG_ABTEST_Inventory_Quality.png", caption="", use_column_width=True)
+    st.image("https://pub.doubleverify.com/blog/content/images/2023/10/DVPS_BLOG_ABTEST_Inventory_Quality.png", caption="", use_container_width=True)
     st.title("¿Qué sitio web obtuvo mejores resultados?")
     st.write("Para interpretar los resultados de la prueba, se aplicaron un conjunto de técnicas a los datos. Una de ellas fue la búsqueda de correlación entre las variables. El objetivo fue detectar aquellas variables que se indrementaban o disminuían simultáneamente. ")
     
@@ -210,7 +210,7 @@ elif seleccion == "Resultados de la prueba":
     st.dataframe(df_tasas)
 
     st.write("Con el dataframe de KPI's, fue posible graficar el comportamiento general de nuestros clientes en ambos sitios web.")
-    st.image(r"../Data/gra.jpg",  caption="", use_column_width=True)
+    st.image(r"../Data/gra.jpg",  caption="", use_container_width=True)
 
     
     st.write("Para validar cuál de los sitios web ofrece mejores resultados, se aplicaron pruebas de hipótesis. Sus resultados se muestran a continuación:")
@@ -230,7 +230,7 @@ elif seleccion == "Resultados de la prueba":
 # Sección 4: Conclusiones y recomendaciones
 elif seleccion == "Conclusiones y recomendaciones":
     st.title("Conclusiones y recomendaciones")
-    st.image("https://src.n-ix.com/uploads/2024/07/01/2e512188-d4cd-4ab3-a5f0-3210b3e03644.webp", caption="", use_column_width=True)
+    st.image("https://src.n-ix.com/uploads/2024/07/01/2e512188-d4cd-4ab3-a5f0-3210b3e03644.webp", caption="", use_container_width=True)
     st.subheader("Nuestras áreas de oportunidad")
     
     # Step 1: Verificación de Identidad
