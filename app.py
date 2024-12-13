@@ -210,7 +210,7 @@ elif seleccion == "Resultados de la prueba":
     st.dataframe(df_tasas)
 
     st.write("Con el dataframe de KPI's, fue posible graficar el comportamiento general de nuestros clientes en ambos sitios web.")
-    st.image(r"../Data/gra.jpg",  caption="", use_container_width=True)
+    st.image(r"Data/gra.jpg",  caption="", use_container_width=True)
 
     
     st.write("Para validar cuál de los sitios web ofrece mejores resultados, se aplicaron pruebas de hipótesis. Sus resultados se muestran a continuación:")
