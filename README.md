@@ -2,7 +2,7 @@
 
 Bienvenido al proyecto **Análisis Comparativo de Páginas Web del Ironhack Bank** 🏦, donde se evaluó la eficiencia y usabilidad de una nueva versión de la página web comparada con la antigua. Este proyecto tiene como objetivo identificar mejoras clave en la experiencia del usuario mediante el análisis de datos cuantitativos.
 
-Explora la aplicación interactiva: [Ironhack Bank Dashboard](https://github.com/estcr/Project_2_Iron_Hack/blob/main/Data/calidad%203.gif) 🔗
+Explora la aplicación interactiva: ![Ironhack Bank Dashboard](https://github.com/estcr/Project_2_Iron_Hack/blob/main/Data/calidad%203.gif) 🔗
 
 ---
 
