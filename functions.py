@@ -230,7 +230,7 @@ def basic_stat_comparison(dfs, columna, show_outliers, bins):
 
     # Ajustamos el layout para que no se superpongan
     plt.tight_layout()
-    plt.show()
+    return plt
 
 
 #------- ANÁLISIS UNIVARIABLE DE VARIABLES CATEGÓRICAS (COMPARATIVO DE 3 DATAFRAMES)-----------

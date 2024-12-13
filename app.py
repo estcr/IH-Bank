@@ -100,7 +100,6 @@ elif seleccion == "Análisis de la aplicación de la prueba":
     st.subheader("Edad de los clientes")
     st.write("Registro general (AZUL)  /  Clientes en web nueva (VERDE)  /  Clientes en web antigua (ROSA)")
     fig_1=f.basic_stat_comparison([df_final_completo, df_test_num, df_control_num],'clnt_age', show_outliers=True, bins=20)
-    #st.set_option('deprecation.showPyplotGlobalUse', False) #elimina warning xd
     st.pyplot(fig_1,use_container_width=True)
     st.write("En esta imagen se aprecia la similitud en los clientes seleccionados")
         
@@ -108,7 +107,6 @@ elif seleccion == "Análisis de la aplicación de la prueba":
     st.subheader("Número de inicios de sesión en el último semestre")
     st.write("Registro general (AZUL)  /  Clientes en web nueva (VERDE)  /  Clientes en web antigua (ROSA)")
     fig_2=f.basic_stat_comparison([df_final_completo, df_test_num, df_control_num],'logons_6_mnth', show_outliers=True, bins=7)
-    #st.set_option('deprecation.showPyplotGlobalUse', False) #elimina warning xd
     st.pyplot(fig_2,use_container_width=True)
     st.write("En esta imagen se aprecia la similitud en los clientes seleccionados")
 
@@ -116,7 +114,6 @@ elif seleccion == "Análisis de la aplicación de la prueba":
     st.subheader("Años como clientes del banco")
     st.write("Registro general (AZUL)  /  Clientes en web nueva (VERDE)  /  Clientes en web antigua (ROSA)")
     fig_3=f.basic_stat_comparison([df_final_completo, df_test_num, df_control_num],'clnt_tenure_yr', show_outliers=True, bins=20)    
-    #st.set_option('deprecation.showPyplotGlobalUse', False) #elimina warning xd
     st.pyplot(fig_3,use_container_width=True)
     st.write("En esta imagen se aprecia la similitud en los clientes seleccionados")
  
@@ -195,19 +192,16 @@ elif seleccion == "Resultados de la prueba":
     st.write("Ejemplo de matriz de correlación (Pearson), para observar una posible correlación lineal entre los datos analizados. ")
     #Figura 4:
     fig_4= f.corr_map_pearson(df_test_num,-0.3,0.9)
-    st.set_option('deprecation.showPyplotGlobalUse', False) #elimina warning xd
     st.pyplot(fig_4,use_container_width=True)
     
     st.write("Ejemplo de matriz de correlación (Spearman), para observar una posible correlación monótona entre los datos analizados. ")
     #Figura 5:
     fig_5= f.corr_map_spearman(df_test_num,-0.6,0.9)
-    st.set_option('deprecation.showPyplotGlobalUse', False) #elimina warning xd
     st.pyplot(fig_5,use_container_width=True)
 
     st.write("Tras detectar una posible correlación entre dos variables, se observa su comportamiento a la par:")
     #Figura 5:
     fig_6= f.pair_plots(df_final_completo,'clnt_age',['step_2_time'],'Variation')
-    st.set_option('deprecation.showPyplotGlobalUse', False) #elimina warning xd
     st.pyplot(fig_6,use_container_width=True)
     st.write("En el gráfico anterior, se observa el la correlación entre la edad de los clientes y el tiempo que tardan en el paso 2, para ambos sitios web. Se interpreta que los clientes demoran más tiempo en este paso cuando usan el sitio web nuevo, que el antiguo.")
 
