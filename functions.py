@@ -280,7 +280,7 @@ def categorical_stat_comparison(dfs, columna):
 
     # Ajustamos el layout para que no se superpongan
     plt.tight_layout()
-    plt.show()
+    return plt
 
 
 #-----------------------MAPA DE CORRELACIÓN LINEAL (PEARSON) ENTRE VARIABLES NUMÉRICAS
@@ -324,7 +324,7 @@ def corr_map_pearson(df, v_min, v_max):
 
     # Añadir un título al gráfico
     plt.title("Pearson Correlation Heatmap for Selected Numerical Variables")
-    plt.show()
+    return plt
 
 
 
@@ -369,7 +369,7 @@ def corr_map_spearman(df, v_min, v_max):
     plt.title("Spearman Correlation Heatmap for Selected Numerical Variables")
     
     # Mostrando el heatmap
-    plt.show()
+    return plt
 
 
     #------------------GRÁFICAS DE  CORRELACIÓN ENTRE VARIABLES NUMÉRICAS TEST VS CONTROL
