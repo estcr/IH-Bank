@@ -60,7 +60,7 @@ seleccion = st.session_state.seleccion
 if seleccion == "Prueba piloto":
     # Título principal de la aplicación
     st.title("IH Bank inicia pruebas piloto de la nueva web para inversiones.")
-    st.image("https://www.hostinger.es/tutoriales/wp-content/uploads/sites/7/2019/08/precio-sitio-web.webp", caption="", use_column_width=True)
+    st.image("https://www.hostinger.es/tutoriales/wp-content/uploads/sites/7/2019/08/precio-sitio-web.webp", caption="", use_container_width=True)
     st.header("Prueba Piloto")
     st.write("""
         En el marco de nuestro esfuerzo continuo por mejorar la experiencia digital de nuestros clientes, realizamos una prueba piloto para evaluar la eficacia de nuestro nuevo sitio web en el proceso de apertura de una inversión. El objetivo fue comparar la facilidad con la que nuestros clientes completan los cinco pasos del proceso (Start, Step 1, Step 2, Step 3 y Confirm) en dos versiones de la plataforma: el sitio web antiguo y el nuevo.
@@ -175,7 +175,7 @@ elif seleccion == "Análisis de la aplicación de la prueba":
     st.code(codigo2, language='python')
     st.subheader("🔎🔎Conoce a detalle el análisis efectuado y el código utilizado en este trabajo🔎🔎")
     st.markdown("💡--> Visita el [repositorio](https://github.com/gerardoJI/P1_Commodities_price) en GitHub.")
-    st.image("https://static.vecteezy.com/system/resources/previews/039/342/550/non_2x/bank-service-employees-and-clients-financial-consultation-vector.jpg", caption="", use_column_width=True)
+    st.image("https://static.vecteezy.com/system/resources/previews/039/342/550/non_2x/bank-service-employees-and-clients-financial-consultation-vector.jpg", caption="", use_container_width=True)
 
 
 
