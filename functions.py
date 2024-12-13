@@ -160,7 +160,7 @@ def basic_stat_comparison(dfs, columna, show_outliers, bins):
     """
     import numpy as np
     import pandas as pd
-    import matplotlib.pyplot as plt
+    from matplotlib import pyplot as plt
     import seaborn as sns 
 
     # Verificamos que la columna exista en todos los DataFrames
