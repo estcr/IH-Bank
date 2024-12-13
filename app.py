@@ -65,7 +65,7 @@ if seleccion == "Prueba piloto":
         Durante la prueba, dividimos a nuestros clientes en dos grupos. Un grupo utilizó el sitio antiguo y el otro probó el nuevo sitio. A través de esta prueba, buscamos determinar cuál de los dos sitios permite a los usuarios completar el proceso de inversión de manera más rápida y sencilla.
     """)
     st.subheader("Proceso general en el sitio web")
-    st.image(r"../Data/pasos.jpg", caption="", use_column_width=True)
+    st.image(r"Data/pasos.jpg", caption="", use_column_width=True)
     st.subheader("Innovaciones en la nueva web")
     textop1='''
         Resumen de las características:
