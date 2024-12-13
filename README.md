@@ -2,7 +2,7 @@
 
 Bienvenido al proyecto **Análisis Comparativo de Páginas Web del Ironhack Bank** 🏦, donde se evaluó la eficiencia y usabilidad de una nueva versión de la página web comparada con la antigua. Este proyecto tiene como objetivo identificar mejoras clave en la experiencia del usuario mediante el análisis de datos cuantitativos.
 
-Explora la aplicación interactiva: [Ironhack Bank Dashboard]([https://ironhackihbank1.streamlit.app/](https://github.com/estcr/Project_2_Iron_Hack/blob/main/Data/video_4k.mp4)) 🔗
+Explora la aplicación interactiva: [Ironhack Bank Dashboard](https://ironhackihbank1.streamlit.app/) 🔗 
 
 ---
 
@@ -52,7 +52,7 @@ Como resultado, se generaron visualizaciones y dashboards interactivos con herra
   3. **Comparaciones Gráficas:** Análisis visual entre las versiones mediante Ribbon Chart.
   4. **Comparaciones Gráficas:** Análisis visual entre las versiones mediante Bar Charts.
  
-     ![Demo Power Bi]()
+     ![Demo Power Bi](https://github.com/estcr/Project_2_Iron_Hack/blob/main/Data/calidad%203.gif)
 
 - **Streamlit:** Se desarrolló una aplicación interactiva que permite explorar los datos y análisis de forma dinámica.
 
