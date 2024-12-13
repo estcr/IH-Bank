@@ -49,7 +49,8 @@ Como resultado, se generaron visualizaciones y dashboards interactivos con herra
 - **Power BI:** Se crearon dashboards con 4 páginas:
   1. **Sesgo de Usuarios**: Comprobación de la equidad entre grupos.
   2. **Hipótesis:** Validación de resultados clave.
-  3 y 4. **Comparaciones Gráficas:** Análisis visual entre las versiones.
+  3. **Comparaciones Gráficas:** Análisis visual entre las versiones mediante Ribbon Chart.
+  4. **Comparaciones Gráficas:** Análisis visual entre las versiones mediante Bar Charts.
 
 - **Streamlit:** Se desarrolló una aplicación interactiva que permite explorar los datos y análisis de forma dinámica.
 
