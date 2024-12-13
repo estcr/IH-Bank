@@ -287,7 +287,7 @@ elif seleccion == "Conclusiones y recomendaciones":
 # Sección 5: DEMO de power bi 
 elif seleccion == "Power BI DEMO":      
      st.title("Power BI")
-     st.video(r"../Data/video_4k.mp4")
+     st.video(r"Data/video_4k.mp4")
 
 # Agregar los datos del autor y enlaces de redes sociales en la parte inferior de la barra lateral
 st.sidebar.markdown("---")  # Línea separadora
