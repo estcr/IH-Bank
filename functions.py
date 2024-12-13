@@ -392,7 +392,7 @@ def pair_plots(df, var, vars, hue_var):
     1. La función recorre cada elemento de `vars`, que contiene una lista de variables a comparar con `var`.
     2. Para cada par de variables, se genera un gráfico de pares utilizando `seaborn.pairplot`.
     3. En cada gráfico, se dibuja una línea de regresión, y se utiliza `hue_var` para colorear los puntos de acuerdo a la variable categórica.
-    4. Se muestra el gráfico con `plt.show()`.
+    4. Se devuelve el gráfico.
     """
 
     import numpy as np
@@ -416,7 +416,7 @@ def pair_plots(df, var, vars, hue_var):
         g.fig.suptitle(f"Gráfica de correlación entre {var} y {vars_n}", fontsize=16)
         
         # Mostrar el gráfico
-        plt.show()
+        return plt
 
 
 # ------------------- FUNCIÓN PARA REALIZAR ESTANDARIZACIÓN Y PRUEBA DE KOLMOGOROV
@@ -464,7 +464,7 @@ def kolm_smir_test(df):
 
         # Crear y mostrar el gráfico de probabilidad (Q-Q plot)
         stats.probplot(df[columna], plot=plt)
-        plt.show()
+        return plt
 
 
 
