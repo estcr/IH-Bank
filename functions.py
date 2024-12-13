@@ -1043,7 +1043,7 @@ def create_boxplot_comparison(df, column, title="Test vs Control Group Compariso
 #---------------------LLAMADO A CSV DE DATA FRAME FINAL---------------------------------------------------------------
 def llama_datos():
     import pandas as pd
-    df_final_completo=pd.read_csv("Data\cleaned\finalcompleto.csv")
+    df_final_completo=pd.read_csv("Data/cleaned/finalcompleto.csv")
     df_test=pd.read_csv("Data/cleaned/test.csv")
     df_tasas=pd.read_csv("Data/cleaned/tasas.csv")
     df_control=pd.read_csv("Data/cleaned/control.csv")
