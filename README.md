@@ -82,7 +82,7 @@ Como resultado, se generaron visualizaciones y dashboards interactivos con herra
 ## 👨‍💼 Autores
 
 Este proyecto fue realizado por:
-- Esteban Cristos Muzzupappa - [LinkedIn](https://www·linkedin·com/in/esteban-cristos-muzzupappa/)
+- Esteban Cristos Muzzupappa - [LinkedIn](https://www.linkedin.com/in/esteban-cristos-m/)
 - Gerardo Jimenez - [LinkedIn](https://www·linkedin·com/in/gerardo-jimenez/) 
 
 ---
